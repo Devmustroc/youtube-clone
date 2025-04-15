@@ -1,6 +1,7 @@
 import { SidebarProvider } from "@/components/ui/sidebar";
 import {HomeSidebar} from "@/modules/home/ui/components/home-sidebar";
-import {HomeNavbar} from "@/modules/home/ui/components/home-navbar";
+import {StudioNavbar} from "@/modules/studio/ui/components/studio-navbar";
+import {StudioSidebar} from "@/modules/studio/ui/components/studio-sidebar";
 
 
 
@@ -14,11 +15,11 @@ export const StudioLayout = ({ children }: LayoutProps) => {
 			<div
 				className="w-full"
 			>
-				<HomeNavbar />
+				<StudioNavbar />
 				<div
 					className="flex min-h-screen pt-[4rem]"
 				>
-					<HomeSidebar />
+					<StudioSidebar />
 					<main
 						className="flex-1 overflow-auto"
 					>
