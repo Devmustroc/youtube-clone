@@ -1,5 +1,4 @@
 import { SidebarProvider } from "@/components/ui/sidebar";
-import {HomeSidebar} from "@/modules/home/ui/components/home-sidebar";
 import {StudioNavbar} from "@/modules/studio/ui/components/studio-navbar";
 import {StudioSidebar} from "@/modules/studio/ui/components/studio-sidebar";
 
