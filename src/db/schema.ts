@@ -20,6 +20,10 @@ export const userRelations = relations(users, ({ many }) => ({
 	videos: many(videos),
 }));
 
+export const categoriesRelations = relations(users, ({ many }) => ({
+	videos: many(videos),
+}))
+
 export const categories = pgTable("categories", {
 	id: uuid().primaryKey().defaultRandom(),
 	name: text("name").notNull().unique(),
@@ -35,8 +39,9 @@ export const videos = pgTable("videos", {
 	userId: uuid("user_id").notNull().references(() => users.id, {
 		onDelete: "cascade",
 	}),
-
-
+	categoryId: uuid('category_id').references(() => categories.id, {
+		onDelete: "set null",
+	}),
 	createdAt: timestamp().notNull().defaultNow(),
 	updatedAt: timestamp().notNull().defaultNow(),
 });
@@ -45,5 +50,9 @@ export const videoRelation = relations(videos, ({ one  }) => ({
 	user: one(users, {
 		fields: [videos.userId],
 		references: [users.id],
+	}),
+	categories: one(categories, {
+		fields: [videos.categoryId],
+		references: [categories.id],
 	}),
 }));
