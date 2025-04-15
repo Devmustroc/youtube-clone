@@ -1,7 +1,7 @@
 'use client'
 
 import { Button } from "@/components/ui/button";
-import {PlusIcon} from "lucide-react";
+import {Loader2, PlusIcon} from "lucide-react";
 import {trpc} from "@/trpc/client";
 
 export const StudioUploadModal = () => {
@@ -15,8 +15,10 @@ export const StudioUploadModal = () => {
         <Button
             variant="secondary"
             onClick={() => create.mutate()}
+            disabled={create.isPending}
         >
-            <PlusIcon />
+            { create.isPending ? <Loader2 className="animate-spin"/> : <PlusIcon /> }
+
             Create
         </Button>
     );
